@@ -3,7 +3,8 @@ package com.kha333n.cs506;
 import java.util.ArrayList;
 
 public class Cart {
-	private ArrayList<Product> cartItems = new ArrayList<Product>();
+	private ArrayList<Product> cartItems = new ArrayList<>();
+
 	Cart(){
 	}
 

@@ -1,11 +1,14 @@
 package com.kha333n.cs506;
 import javax.swing.*;
 
+@SuppressWarnings("unused")
 public class Product {
 	private int id;
 	private String name;
 	private float price;
 	private int quantity;
+
+//>>> For storing product in the cart.
 	private int inCart;
 
 	//Default constructor
@@ -39,7 +42,7 @@ public class Product {
 			JOptionPane.showMessageDialog(null,
 					"Copying product failed.\n" +
 							"Initializing with default values.",
-					"Copy Constructor Exception",2);
+					"Copy Constructor Exception", JOptionPane.WARNING_MESSAGE);
 			id = 0;
 			name = "null";
 			price = 0;
@@ -55,7 +58,9 @@ public class Product {
 		id = verifyId(ID);
 	}
 
-	public void setName(String NAME){ name = NAME;}
+	public void setName(String NAME){
+		name = NAME;
+	}
 
 	public void setPrice(float PRICE){
 		price = verifyPrice(PRICE);
@@ -93,20 +98,26 @@ public class Product {
 		else {
 			int input;
 			do {
+//>>>>>>>>>> Asking user for valid input...
+
+/**************************************************************
+ * ~~~~~~~~~~~~~~~NumberFormatException~~~~~~~~~~~~~~~~~~~~~~~~
+ * ************************************************************/
 				try {
 					input = Integer.parseInt(
 							JOptionPane.showInputDialog(null,
 									"ID of product must be positive number\n" +
 											"Please Enter ID again:",
-									"Invalid Product ID", 2)
+									"Invalid Product ID", JOptionPane.WARNING_MESSAGE)
 					);
 				}
 				catch (NumberFormatException e){
 					JOptionPane.showMessageDialog(null,"Input is not a Number",
-							"Invalid Input",2);
+							"Invalid Input", JOptionPane.WARNING_MESSAGE);
 					input = 0;
 				}
 			}while (!(input >0));
+//>>>>>>>>> End of "NumberFormatException" handling...
 			return input;
 		}
 	}
@@ -119,20 +130,26 @@ public class Product {
 		else {
 			float input;
 			do {
+/**************************************************************
+ * ~~~~~~~~~~~~~~~NumberFormatException~~~~~~~~~~~~~~~~~~~~~~~~
+ * ************************************************************/
+
+//>>>>>>>>>>>>> Asking user for valid price...
 				try {
 					input = Float.parseFloat(
 							JOptionPane.showInputDialog(null,
 									"Price of product must be positive number\n" +
 											"Please Enter Price again:",
-									"Invalid Product Price", 2)
+									"Invalid Product Price", JOptionPane.WARNING_MESSAGE)
 					);
 				}
 				catch (NumberFormatException e){
 					JOptionPane.showMessageDialog(null,"Input is not a Number",
-							"Invalid Input",2);
+							"Invalid Input", JOptionPane.WARNING_MESSAGE);
 					input = 0;
 				}
 			}while (!(input >0));
+//>>>>>>>>> End of "NumberFormatException" handling...
 			return input;
 		}
 	}
@@ -145,20 +162,26 @@ public class Product {
 		else {
 			int input;
 			do {
+/**************************************************************
+ * ~~~~~~~~~~~~~~~NumberFormatException~~~~~~~~~~~~~~~~~~~~~~~~
+ * ************************************************************/
+
+//>>>>>>>>>>>>> Asking user for valid quantity...
 				try {
 					input = Integer.parseInt(
 							JOptionPane.showInputDialog(null,
 									"Quantity of product must be positive number\n" +
 											"Please Enter Quantity again:",
-									"Invalid Product Quantity", 2)
+									"Invalid Product Quantity", JOptionPane.WARNING_MESSAGE)
 					);
 				}
 				catch (NumberFormatException e){
 					JOptionPane.showMessageDialog(null,"Input is not a Number",
-							"Invalid Input",2);
+							"Invalid Input", JOptionPane.WARNING_MESSAGE);
 					input = 0;
 				}
 			}while (!(input >0));
+//>>>>>>>>> End of "NumberFormatException" handling...
 			return input;
 		}
 	}
